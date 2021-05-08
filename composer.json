@@ -1,0 +1,31 @@
+{
+    "name": "cf",
+    "description": "mvc php framework. fast. scalable. simple",
+    "version": "1.1.0",
+    "keywords": ["mvc", "framework"],
+    "homepage": "https://github.com/sadn3r/cf",
+    "time": "2021-05-06",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "sadnr",
+            "email": "sadn3r@gmail.com",
+            "homepage": "https://github.com/sadn3r",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"CF\\": "src/"}
+    },
+    "require": {
+        "cf/db": "1.0"
+    },
+    "require-dev": {
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/sadn3r/cfdb"
+        }
+    ]
+}
