@@ -11,11 +11,7 @@ require __DIR__ . './../vendor/autoload.php';
 $router = Container::getInstance(require __DIR__ . './../dependencies.php')
 	->make(Router::class);
 
-/*$user = Container::getInstance()->make('CF\User');
-$user->setLogin('sadnr');
 
-var_dump($user->isCredentialsRight('12345'));
-die;*/
 $action = $router->resolve();
 
 $cName = __NAMESPACE__.'\\Controllers\\'.$action['controller'];
