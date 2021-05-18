@@ -1,5 +1,5 @@
 <?php
-namespace CF\Model;
+namespace CF\Models;
 
 class Item extends Model{
 

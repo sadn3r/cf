@@ -8,8 +8,8 @@ return [
 	Request::class => function($container) {
 		return new Request($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD'], $_POST);
 	},
-	Model\Item::class => function($container) {
-		return new Model\Item($container->get(Db::class));
+	Models\Item::class => function($container) {
+		return new Models\Item($container->get(Db::class));
 	},
 	Controllers\Home::class => function($container) {
 		return new Controllers\Home($container->get(Request::class));

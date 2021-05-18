@@ -1,7 +1,7 @@
 <?php 
 namespace CF\Controllers;
 
-use CF\Model\Item;
+use CF\Models\Item;
 use CF\{Container, Request};
 
 

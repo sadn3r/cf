@@ -1,5 +1,5 @@
 <?php
-namespace CF\Model;
+namespace CF\Models;
 use CF\Db\Db;
 class Model {
 
