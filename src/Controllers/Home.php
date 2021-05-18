@@ -1,11 +1,14 @@
 <?php 
 namespace CF\Controllers;
 
+use CF\Traits\HtmlRender;
+
 use CF\Models\Item;
 use CF\{Container, Request};
 
+class Home extends Controller {
 
-class Home extends ControllerHtml {
+	use HtmlRender;
 
 	public function Index() {
 		
