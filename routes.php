@@ -15,22 +15,4 @@ return [
 		]
 	],
 	
-	'/type/([a-z]+)' => [
-		'controller'=> 'Home',
-		'action'	=> 'Type',
-	],
-
-	'/property/([0-9]+)' => [
-		'controller'	=> 'Home',
-		'action'		=> 'Property',
-	],
-
-	'/properties-sort' => [
-		'controller' => 'Admin',
-		'action'	=> 'propertiesSort',
-		'action'	=> [
-			Request::GET => 'propertiesSort',
-			Request::POST => 'propertiesSortPost'
-		],
-	],
 ];
