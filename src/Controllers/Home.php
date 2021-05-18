@@ -56,24 +56,4 @@ class Home extends ControllerHtml {
 			'props' => $modelItem->getProperties(),
 		]);
 	}
-
-
-	public function Type(string $aliasType) {
-		$modelItem = Container::getInstance()->get(Item::class);
-		$items = $modelItem->getItemsByType($aliasType);
-
-		$this->render('type', [
-			'items'=>$items,
-		]);
-	}
-
-	public function Property(int $propertyId) {
-
-		$modelItem = Container::getInstance()->get(Item::class);
-		$items = $modelItem->getItemsByPropertyId($propertyId);
-
-		$this->render('property', [
-			'items'=>$items,
-		]);		
-	}
 }
