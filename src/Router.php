@@ -1,12 +1,13 @@
 <?php
 namespace CF;
+use CF\Controllers\Responses;
 
 class Router {
 
 	private $request;
 	private $routes;
 	private $notFoundRoute = [
-		'controller'	=> 'Responses',
+		'controller'	=> Responses::class,
 		'action'		=> 'NotFound',
 		'arguments'		=> [],
 	];
@@ -22,21 +23,21 @@ class Router {
 			
 			if (preg_match('#^'.$rule.'$#u', urldecode($this->request->getRequestUri()), $matches)) {
 				
-				if (is_array($handler['action'])) {
-					if (!isset($handler['action'][$this->request->getRequestMethod()])) {
-						continue;
-					}
-					
-					$action = $handler['action'][$this->request->getRequestMethod()];
-				} else {
-					$action = $handler['action'];
+				if (!array_key_exists(
+					$this->request->getRequestMethod(),
+					$handler)) {
+					break;
 				}
+								
+				list($controller, $action) 
+					= $handler[$this->request->getRequestMethod()];
+				
 
 				array_shift($matches);
 				return [
-					'controller' => $handler['controller'],
-					'action'	=> $action,
-					'arguments'	=> $matches,
+					'controller' => $controller,
+					'action' => $action,
+					'arguments' => $matches,
 				];
 			}
 		}

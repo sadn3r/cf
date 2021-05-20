@@ -14,6 +14,5 @@ $router = Container::getInstance(require __DIR__ . './../dependencies.php')
 
 $action = $router->resolve();
 
-$cName = __NAMESPACE__.'\\Controllers\\'.$action['controller'];
-$controller = Container::getInstance()->make($cName);
+$controller = Container::getInstance()->make($action['controller']);
 call_user_func_array([$controller, $action['action']], $action['arguments']);
