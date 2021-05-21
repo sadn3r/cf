@@ -15,4 +15,5 @@ $router = Container::getInstance(require __DIR__ . './../dependencies.php')
 $action = $router->resolve();
 
 $controller = Container::getInstance()->make($action['controller']);
-call_user_func_array([$controller, $action['action']], $action['arguments']);
+
+call_user_func_array($controller, $action);

@@ -13,7 +13,7 @@ class Home extends Controller {
 	public function Index() {
 		
 		$modelItem = Container::getInstance()->get(Item::class);
-
+		
 		$this->render('index', [
 			'items' => $modelItem->getItemTypes(),
 		]);
