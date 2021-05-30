@@ -10,7 +10,7 @@ use CF\Models\{
 };
 return [
 	Router::class => function($container) {
-		return new Router($container->get(Request::class), require './../routes.php');
+		return new Router($container->get(Request::class), require './../routes.example.php');
 	},
 	Request::class => function($container) {
 		return new Request($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD'], $_POST);
@@ -25,7 +25,7 @@ return [
 		return new Admin($container->get(Request::class));
 	},
 	CFMysql::class => function($container) {
-		extract(require './../dbconfig.php');
+		extract(require './../db.example.php');
 		return new CFMysql($db_addr, $db_user, $db_pass, $db_name, $db_sock?0:$db_port, $db_sock);
 	},
 	Db::class => function($container) {
