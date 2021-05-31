@@ -6,7 +6,9 @@ class Request Implements IRequest {
 
 	const GET = 'GET';
 	const POST = 'POST';
- 
+	const DELETE = 'DELETE';
+ 	const PUT = 'PUT';
+ 	
 	private $requestUri;
 	private $requestMethod;
 	private $post;
