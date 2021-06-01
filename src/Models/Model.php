@@ -3,7 +3,7 @@ namespace CF\Models;
 use CF\Db\Db;
 class Model {
 
-	private $db;
+	protected $db;
 
 	public function __construct(Db $db) {
 		$this->db = $db;
