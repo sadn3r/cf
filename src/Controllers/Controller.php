@@ -11,7 +11,7 @@ abstract class Controller implements Renderable {
 		$this->request = $request;
 	}
 
-    function __invoke($controller, $action, $args){
+    function __invoke($action, $args){
     	call_user_func_array([$this, $action], $args);
     }
 }

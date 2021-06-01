@@ -13,22 +13,42 @@ class Request Implements IRequest {
 	private $requestMethod;
 	private $post;
 
-	function __construct(string $requestUri, string $requestMethod, array &$post) {
+	function __construct(string $requestUri, string $requestMethod, array &$post)
+	{
 		$this->requestUri = $requestUri;
 		$this->requestMethod = $requestMethod;
 		$this->post = $post;
 	}
 
-	public function getRequestUri():string {
+	public function getRequestUri(): string
+	{
 		return $this->requestUri;
 	}
 
-	public function getRequestMethod():string {
+	public function getRequestMethod(): string
+	{
 		return $this->requestMethod;
 	}
 
-	public function getPost():array {
+	public function getPost(): array
+	{
 		return $this->post;
 	}
 
+	public function getJson(string $key = null)
+	{
+		
+		$rawData = file_get_contents('php://input');
+		$jsonData = json_decode($rawData, true);
+
+		$result = null;
+
+		if (is_null($key)) {
+			$result = $jsonData;
+		} else {
+			$result = $jsonData[$key];
+		}
+
+		return $result;
+	} 
 }
