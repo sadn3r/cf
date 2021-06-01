@@ -29,6 +29,10 @@ class Container {
 		throw new Exception("Dependency {$id} not found");
 	}
 
+	public function set(string $id, $resolve) {
+		$this->dependencies[$id] = $resolve;
+	}
+
 	public function make(string $id) {
 		try {
 			return $this->get($id);
