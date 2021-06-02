@@ -6,11 +6,6 @@ class Router {
 
 	private $request;
 	private $routes;
-	private $notFoundRoute = [
-		'controller'	=> Responses::class,
-		'action'		=> 'NotFound',
-		'arguments'		=> [],
-	];
 
 	function __construct(Request $request, array $routes) {
 		$this->routes = $routes;
@@ -42,6 +37,6 @@ class Router {
 			}
 		}
 
-		return $this->notFoundRoute;
+		throw new Exception("Action Unhandled", 1);
 	}
 }
