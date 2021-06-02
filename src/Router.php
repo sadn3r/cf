@@ -1,7 +1,7 @@
 <?php
 namespace CF;
 use CF\Controllers\Responses;
-
+use Exception;
 class Router {
 
 	private $request;
@@ -15,13 +15,11 @@ class Router {
 	public function resolve() {
 
 		foreach ($this->routes as $rule => $handler) {
-			
+
 			if (preg_match('#^'.$rule.'$#u', urldecode($this->request->getRequestUri()), $matches)) {
 				
-				if (!array_key_exists(
-					$this->request->getRequestMethod(),
-					$handler)) {
-					break;
+				if (!array_key_exists($this->request->getRequestMethod(), $handler)) {
+					continue;
 				}
 								
 				list($controller, $action) 
