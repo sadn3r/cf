@@ -18,7 +18,7 @@
         "psr-4": {"CF\\": "src/"}
     },
     "require": {
-        "cf/db": "dev-main"
+        "cf/db": "dev-master"
     },
     "require-dev": {
     },
