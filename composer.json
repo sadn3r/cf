@@ -18,7 +18,8 @@
         "psr-4": {"CF\\": "src/"}
     },
     "require": {
-        "cf/db": "dev-main"
+        "cf/db": "dev-main",
+        "ext-json": "*"
     },
     "require-dev": {
     },
