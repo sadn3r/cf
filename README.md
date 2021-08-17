@@ -9,14 +9,15 @@ install:
 >touch composer.json
 ```
 {
-    "name": "AwesomeProject/AwesomeProject",
+    "name": "awesomeproject/awesomeproject",
     "description": "AwesomeProject",
     "type": "project",
     "autoload": {
         "psr-4": {"AwesomeProject\\": "src/"}
     },
     "require": {
-        "cf/base": "dev-main",
+    	"cf/base": "dev-main",
+    	"cf/db": "dev-main"
     },
     "repositories": [
         {
