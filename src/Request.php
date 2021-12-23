@@ -12,15 +12,8 @@ class Request implements IRequest
     const DELETE = 'DELETE';
     const PUT = 'PUT';
 
-    private $requestUri;
-    private $requestMethod;
-    private $post;
-
-    function __construct(string $requestUri, string $requestMethod, array &$post)
+    public function __construct(public readonly string $requestUri, public readonly string $requestMethod, public readonly array $post)
     {
-        $this->requestUri = $requestUri;
-        $this->requestMethod = $requestMethod;
-        $this->post = $post;
     }
 
     public function getRequestUri(): string

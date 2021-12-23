@@ -3,7 +3,6 @@
 namespace CF;
 
 use CF\Controllers\Api;
-use CF\Controllers\Responses;
 
 return [
 
