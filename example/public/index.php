@@ -1,11 +1,11 @@
 <?php
 
-namespace AwesomeProject;
+namespace CF;
 
 use CF\Container;
 use CF\Router;
 use ErrorException;
-use AwesomeProject\Controllers\Api;
+use CF\Controllers\Api;
 
 error_reporting(E_ALL);
 ini_set('display_errors', "1");
@@ -34,4 +34,4 @@ $action = $router->resolve();
 
 $controller = Container::getInstance()->get(array_shift($action));
 
-call_user_func_array($controller, $action);
+call_user_func_array($controller, array_values($action));

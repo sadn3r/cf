@@ -3,8 +3,8 @@
 namespace CF;
 
 use CF\Db\{CFMysql, Db};
-use AwesomeProject\Controllers\{
-    Home
+use CF\Controllers\{
+    Api
 };
 use AwesomeProject\Models\{
     Item
@@ -18,12 +18,10 @@ return [
         return new Request($_SERVER['REQUEST_URI'] ?? '', $_SERVER['REQUEST_METHOD'] ?? '', $_POST);
     },
 
-    Home::class => function ($container) {
-        return new Home($container->get(Request::class));
+    Api::class => function ($container) {
+        return new Api($container->get(Request::class));
     },
-    Item::class => function ($container) {
-        return new Item($container->get(Db::class));
-    },
+
 
     CFMysql::class => function ($container) {
         return new CFMysql(... require __DIR__ . '/db.config.php');

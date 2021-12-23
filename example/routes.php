@@ -2,17 +2,17 @@
 
 namespace CF;
 
-use CF\Controllers\Home;
+use CF\Controllers\Api;
 use CF\Controllers\Responses;
 
 return [
 
     '/' => [
-        Request::GET => [Home::class, 'Index']
+        Request::GET => [Api::class, 'Index']
     ],
 
     '/item/([a-z\-]+)' => [
-        Request::GET => [Home::class, 'Item'],
-        Request::POST => [Home::class, 'ItemPost'],
+        Request::GET => [Api::class, 'Item'],
+        Request::POST => [Api::class, 'ItemPost'],
     ],
 ];

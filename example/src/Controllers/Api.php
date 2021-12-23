@@ -1,11 +1,11 @@
 <?php
 
-namespace AwesomeProject\Controllers;
+namespace CF\Controllers;
 
 use CF\Request;
 use CF\Controllers\Controller;
-use AwesomeProject\Exceptions\NotFoundException;
-use AwesomeProject\Traits\JsonRender;
+use CF\Exceptions\NotFoundException;
+use CF\Traits\JsonRender;
 
 use Throwable;
 
@@ -13,6 +13,11 @@ class Api extends Controller
 {
 
     use JsonRender;
+
+    public function Index()
+    {
+        echo 123;
+    }
 
     public function __construct(Request $request)
     {
