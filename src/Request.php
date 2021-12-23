@@ -1,54 +1,57 @@
 <?php
+
 namespace CF;
+
 use CF\Interfaces\IRequest;
 
-class Request Implements IRequest {
+class Request implements IRequest
+{
 
-	const GET = 'GET';
-	const POST = 'POST';
-	const DELETE = 'DELETE';
- 	const PUT = 'PUT';
- 	
-	private $requestUri;
-	private $requestMethod;
-	private $post;
+    const GET = 'GET';
+    const POST = 'POST';
+    const DELETE = 'DELETE';
+    const PUT = 'PUT';
 
-	function __construct(string $requestUri, string $requestMethod, array &$post)
-	{
-		$this->requestUri = $requestUri;
-		$this->requestMethod = $requestMethod;
-		$this->post = $post;
-	}
+    private $requestUri;
+    private $requestMethod;
+    private $post;
 
-	public function getRequestUri(): string
-	{
-		return $this->requestUri;
-	}
+    function __construct(string $requestUri, string $requestMethod, array &$post)
+    {
+        $this->requestUri = $requestUri;
+        $this->requestMethod = $requestMethod;
+        $this->post = $post;
+    }
 
-	public function getRequestMethod(): string
-	{
-		return $this->requestMethod;
-	}
+    public function getRequestUri(): string
+    {
+        return $this->requestUri;
+    }
 
-	public function getPost(): array
-	{
-		return $this->post;
-	}
+    public function getRequestMethod(): string
+    {
+        return $this->requestMethod;
+    }
 
-	public function getJson(string $key = null)
-	{
-		
-		$rawData = file_get_contents('php://input');
-		$jsonData = json_decode($rawData, true);
+    public function getPost(): array
+    {
+        return $this->post;
+    }
 
-		$result = null;
+    public function getJson(string $key = null)
+    {
 
-		if (is_null($key)) {
-			$result = $jsonData;
-		} else {
-			$result = $jsonData[$key];
-		}
+        $rawData = file_get_contents('php://input');
+        $jsonData = json_decode($rawData, true);
 
-		return $result;
-	} 
+        $result = null;
+
+        if (is_null($key)) {
+            $result = $jsonData;
+        } else {
+            $result = $jsonData[$key];
+        }
+
+        return $result;
+    }
 }

@@ -1,40 +1,46 @@
 <?php
+
 namespace CF;
+
 use CF\Controllers\Responses;
 use Exception;
-class Router {
 
-	private $request;
-	private $routes;
+class Router
+{
 
-	function __construct(Request $request, array $routes) {
-		$this->routes = $routes;
-		$this->request = $request;
-	}
+    private $request;
+    private $routes;
 
-	public function resolve() {
+    function __construct(Request $request, array $routes)
+    {
+        $this->routes = $routes;
+        $this->request = $request;
+    }
 
-		foreach ($this->routes as $rule => $handler) {
+    public function resolve()
+    {
 
-			if (preg_match('#^'.$rule.'$#u', urldecode($this->request->getRequestUri()), $matches)) {
-				
-				if (!array_key_exists($this->request->getRequestMethod(), $handler)) {
-					continue;
-				}
-								
-				list($controller, $action) 
-					= $handler[$this->request->getRequestMethod()];
-				
+        foreach ($this->routes as $rule => $handler) {
 
-				array_shift($matches);
-				return [
-					'controller' => $controller,
-					'action' => $action,
-					'arguments' => $matches,
-				];
-			}
-		}
+            if (preg_match('#^' . $rule . '$#u', urldecode($this->request->getRequestUri()), $matches)) {
 
-		throw new Exception("Action Unhandled", 1);
-	}
+                if (!array_key_exists($this->request->getRequestMethod(), $handler)) {
+                    continue;
+                }
+
+                list($controller, $action)
+                    = $handler[$this->request->getRequestMethod()];
+
+
+                array_shift($matches);
+                return [
+                    'controller' => $controller,
+                    'action' => $action,
+                    'arguments' => $matches,
+                ];
+            }
+        }
+
+        throw new Exception("Action Unhandled", 1);
+    }
 }
