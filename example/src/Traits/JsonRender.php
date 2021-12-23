@@ -1,9 +1,12 @@
 <?php
+
 namespace AwesomeProject\Traits;
 
-trait JsonRender {
+trait JsonRender
+{
 
-    public static function render(array $data = [], int $httpStatus = 200) {
+    public static function render(array $data = [], int $httpStatus = 200)
+    {
 
         http_response_code($httpStatus);
         header('Content-Type: application/json');

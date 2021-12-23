@@ -1,62 +1,62 @@
 {
-    "_readme": [
-        "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
-        "This file is @generated automatically"
-    ],
-    "content-hash": "70e3a4a565e8150f700ddcf6f73d2392",
-    "packages": [
-        {
-            "name": "cf/db",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:sadn3r/cfdb.git",
-                "reference": "7ee18b14a08878c869d0caab4f45a3e8a618ae65"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sadn3r/cfdb/zipball/7ee18b14a08878c869d0caab4f45a3e8a618ae65",
-                "reference": "7ee18b14a08878c869d0caab4f45a3e8a618ae65",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "CF\\Db\\": "src/"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Vyacheslav Petukhov",
-                    "email": "sadn3r@gmail.com",
-                    "homepage": "https://bitbucket.org/sadn3r/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "db wrapper mysqli",
-            "homepage": "https://bitbucket.org/sadn3r/cfdb.git",
-            "keywords": [
-                "db",
-                "mysqli"
-            ],
-            "support": {
-                "source": "https://github.com/sadn3r/cfdb/tree/v1.0",
-                "issues": "https://github.com/sadn3r/cfdb/issues"
-            },
-            "time": "2021-05-07T00:00:00+00:00"
+  "_readme": [
+    "This file locks the dependencies of your project to a known state",
+    "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+    "This file is @generated automatically"
+  ],
+  "content-hash": "70e3a4a565e8150f700ddcf6f73d2392",
+  "packages": [
+    {
+      "name": "cf/db",
+      "version": "1.0.0",
+      "source": {
+        "type": "git",
+        "url": "git@github.com:sadn3r/cfdb.git",
+        "reference": "7ee18b14a08878c869d0caab4f45a3e8a618ae65"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/sadn3r/cfdb/zipball/7ee18b14a08878c869d0caab4f45a3e8a618ae65",
+        "reference": "7ee18b14a08878c869d0caab4f45a3e8a618ae65",
+        "shasum": ""
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "CF\\Db\\": "src/"
         }
-    ],
-    "packages-dev": [],
-    "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
-    "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+      },
+      "license": [
+        "proprietary"
+      ],
+      "authors": [
+        {
+          "name": "Vyacheslav Petukhov",
+          "email": "sadn3r@gmail.com",
+          "homepage": "https://bitbucket.org/sadn3r/",
+          "role": "Developer"
+        }
+      ],
+      "description": "db wrapper mysqli",
+      "homepage": "https://bitbucket.org/sadn3r/cfdb.git",
+      "keywords": [
+        "db",
+        "mysqli"
+      ],
+      "support": {
+        "source": "https://github.com/sadn3r/cfdb/tree/v1.0",
+        "issues": "https://github.com/sadn3r/cfdb/issues"
+      },
+      "time": "2021-05-07T00:00:00+00:00"
+    }
+  ],
+  "packages-dev": [],
+  "aliases": [],
+  "minimum-stability": "stable",
+  "stability-flags": [],
+  "prefer-stable": false,
+  "prefer-lowest": false,
+  "platform": [],
+  "platform-dev": [],
+  "plugin-api-version": "2.0.0"
 }

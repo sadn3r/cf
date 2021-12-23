@@ -1,12 +1,14 @@
 # cf
+
 clean framework
 
 install:
->mkdir AwesomeProject
+> mkdir AwesomeProject
 >
 >cd AwesomeProject
 >
 >touch composer.json
+
 ```
 {
     "name": "awesomeproject/awesomeproject",
@@ -32,7 +34,7 @@ install:
 }
 ```
 
->composer install
+> composer install
 
 
 touch public/index.php

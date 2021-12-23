@@ -1,8 +1,11 @@
 <?php
+
 namespace CF\Interfaces;
 
-Interface IRequest {
-	
-	public function getRequestUri():string;
-	public function getRequestMethod():string;
+interface IRequest
+{
+
+    public function getRequestUri(): string;
+
+    public function getRequestMethod(): string;
 }

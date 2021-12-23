@@ -1,47 +1,58 @@
 <?php
+
 namespace CF;
+
 use Exception;
-class Container {
-	private static $_instance;
-	private $dependencies = [];
 
-	private function __construct(array $dependencies = []) {
-		$this->dependencies = $dependencies;
-	}
+class Container
+{
+    private static $_instance;
+    private $dependencies = [];
 
-	public static function getInstance(array $dependencies = []) {
-		if(is_null(self::$_instance)) {
-			self::$_instance = new self($dependencies);
-		}
+    private function __construct(array $dependencies = [])
+    {
+        $this->dependencies = $dependencies;
+    }
 
-		return self::$_instance;
-	}
+    public static function getInstance(array $dependencies = [])
+    {
+        if (is_null(self::$_instance)) {
+            self::$_instance = new self($dependencies);
+        }
 
-	public function has(string $id): bool {
-		return isset($this->dependencies[$id]);
-	}
+        return self::$_instance;
+    }
 
-	public function get(string $id) {
-		if ($this->has($id)) {
-			return $this->resolve($id);
-		}
+    public function has(string $id): bool
+    {
+        return isset($this->dependencies[$id]);
+    }
 
-		throw new Exception("Dependency {$id} not found");
-	}
+    public function get(string $id)
+    {
+        if ($this->has($id)) {
+            return $this->resolve($id);
+        }
 
-	public function set(string $id, $resolve) {
-		$this->dependencies[$id] = $resolve;
-	}
+        throw new Exception("Dependency {$id} not found");
+    }
 
-	public function make(string $id) {
-		try {
-			return $this->get($id);
-		} catch (Exception $e) {
-			return new $id();
-		}
-	}
+    public function set(string $id, $resolve)
+    {
+        $this->dependencies[$id] = $resolve;
+    }
 
-	private function resolve(string $id) {
-		return call_user_func($this->dependencies[$id], $this);
-	}
+    public function make(string $id)
+    {
+        try {
+            return $this->get($id);
+        } catch (Exception $e) {
+            return new $id();
+        }
+    }
+
+    private function resolve(string $id)
+    {
+        return call_user_func($this->dependencies[$id], $this);
+    }
 }

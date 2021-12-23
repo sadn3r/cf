@@ -1,4 +1,5 @@
 <?php
+
 namespace AwesomeProject;
 
 use CF\Container;
@@ -16,7 +17,7 @@ set_error_handler(function ($severity, $message, $filename, $lineno) {
     throw new ErrorException($message, 0, $severity, $filename, $lineno);
 });
 
-set_exception_handler(function($th) {
+set_exception_handler(function ($th) {
     Api::render([
         'error' => $th->getMessage(),
         'errorCode' => $th->getCode(),

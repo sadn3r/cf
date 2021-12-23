@@ -1,4 +1,5 @@
 <?php
+
 namespace AwesomeProject\Controllers;
 
 use CF\Request;
@@ -8,7 +9,8 @@ use AwesomeProject\Traits\JsonRender;
 
 use Throwable;
 
-class Api extends Controller {
+class Api extends Controller
+{
 
     use JsonRender;
 

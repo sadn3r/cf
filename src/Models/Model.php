@@ -1,15 +1,21 @@
 <?php
+
 namespace CF\Models;
+
 use CF\Db\Db;
-class Model {
 
-	protected $db;
+class Model
+{
 
-	public function __construct(Db $db) {
-		$this->db = $db;
-	}
+    protected $db;
 
-	public function exec(string $sql, array $data = []) {
-		return $this->db->exec($sql, $data);
-	}
+    public function __construct(Db $db)
+    {
+        $this->db = $db;
+    }
+
+    public function exec(string $sql, array $data = [])
+    {
+        return $this->db->exec($sql, $data);
+    }
 }
