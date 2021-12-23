@@ -1,6 +1,6 @@
 <?php
 
-namespace AwesomeProject\Traits;
+namespace CF\Traits;
 
 trait JsonRender
 {
