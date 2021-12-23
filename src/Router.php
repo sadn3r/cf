@@ -2,19 +2,13 @@
 
 namespace CF;
 
-use CF\Controllers\Responses;
 use Exception;
 
 class Router
 {
 
-    private $request;
-    private $routes;
-
-    function __construct(Request $request, array $routes)
+    public function __construct(private Request $request, private array $routes)
     {
-        $this->routes = $routes;
-        $this->request = $request;
     }
 
     public function resolve()

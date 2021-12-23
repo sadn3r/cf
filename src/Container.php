@@ -7,14 +7,12 @@ use Exception;
 class Container
 {
     private static $_instance;
-    private $dependencies = [];
 
-    private function __construct(array $dependencies = [])
+    private function __construct(private array $dependencies = [])
     {
-        $this->dependencies = $dependencies;
     }
 
-    public static function getInstance(array $dependencies = [])
+    public static function getInstance(array $dependencies = []): Container
     {
         if (is_null(self::$_instance)) {
             self::$_instance = new self($dependencies);

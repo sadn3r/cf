@@ -5,7 +5,7 @@ namespace CF\Traits;
 trait JsonRender
 {
 
-    public static function render(array $data = [], int $httpStatus = 200)
+    public static function render(array $data = [], int $httpStatus = 200): never
     {
 
         http_response_code($httpStatus);

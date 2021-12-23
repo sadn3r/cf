@@ -2,13 +2,9 @@
 
 namespace CF;
 
-use CF\Db\{CFMysql, Db};
-use CF\Controllers\{
-    Api
-};
-use AwesomeProject\Models\{
-    Item
-};
+use CF\Db\CFMysql;
+use CF\Db\Db;
+use CF\Controllers\Api;
 
 return [
     Router::class => function ($container) {
