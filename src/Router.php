@@ -16,15 +16,13 @@ class Router
 
         foreach ($this->routes as $rule => $handler) {
 
-            if (preg_match('#^' . $rule . '$#u', urldecode($this->request->getRequestUri()), $matches)) {
+            if (preg_match('#^' . $rule . '$#u', urldecode($this->request->requestUri), $matches)) {
 
-                if (!array_key_exists($this->request->getRequestMethod(), $handler)) {
+                if (!array_key_exists($this->request->requestMethod->value, $handler)) {
                     continue;
                 }
 
-                list($controller, $action)
-                    = $handler[$this->request->getRequestMethod()];
-
+                [$controller, $action] = $handler[$this->request->requestMethod->value];
 
                 array_shift($matches);
                 return [

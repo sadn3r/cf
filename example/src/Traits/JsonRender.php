@@ -11,6 +11,6 @@ trait JsonRender
         http_response_code($httpStatus);
         header('Content-Type: application/json');
 
-        die(json_encode($data));
+        die(json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
     }
 }

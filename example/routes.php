@@ -3,15 +3,16 @@
 namespace CF;
 
 use CF\Controllers\Api;
+use CF\Controllers\HttpRequestMethod;
 
 return [
 
     '/' => [
-        Request::GET => [Api::class, 'Index']
+        HttpRequestMethod::GET->value => [Api::class, 'Index']
     ],
 
     '/item/([a-z\-]+)' => [
-        Request::GET => [Api::class, 'Item'],
-        Request::POST => [Api::class, 'ItemPost'],
+        HttpRequestMethod::GET->value => [Api::class, 'Item'],
+        HttpRequestMethod::POST->value => [Api::class, 'ItemPost'],
     ],
 ];
