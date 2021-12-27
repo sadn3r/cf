@@ -6,7 +6,9 @@ use Exception;
 
 class Container
 {
-    private static $_instance;
+
+    private static ?Container $_instance = null;
+
 
     private function __construct(private array $dependencies = [])
     {
@@ -14,11 +16,10 @@ class Container
 
     public static function getInstance(array $dependencies = []): Container
     {
-        if (is_null(self::$_instance)) {
-            self::$_instance = new self($dependencies);
-        }
-
-        return self::$_instance;
+        return match (self::$_instance) {
+            null => self::$_instance = new self($dependencies),
+            default => self::$_instance
+        };
     }
 
     public function has(string $id): bool
@@ -44,7 +45,7 @@ class Container
     {
         try {
             return $this->get($id);
-        } catch (Exception $e) {
+        } catch (Exception) {
             return new $id();
         }
     }

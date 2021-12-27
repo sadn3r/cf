@@ -2,49 +2,23 @@
 
 namespace CF;
 
+use CF\Controllers\HttpRequestMethod;
 use CF\Interfaces\IRequest;
 
 class Request implements IRequest
 {
+    public readonly HttpRequestMethod $requestMethod;
 
-    const GET = 'GET';
-    const POST = 'POST';
-    const DELETE = 'DELETE';
-    const PUT = 'PUT';
-
-    public function __construct(public readonly string $requestUri, public readonly string $requestMethod, public readonly array $post)
+    public function __construct(public readonly string $requestUri, string $requestMethod, public readonly array $post)
     {
-    }
-
-    public function getRequestUri(): string
-    {
-        return $this->requestUri;
-    }
-
-    public function getRequestMethod(): string
-    {
-        return $this->requestMethod;
-    }
-
-    public function getPost(): array
-    {
-        return $this->post;
+        $this->requestMethod = HttpRequestMethod::from($requestMethod);
     }
 
     public function getJson(string $key = null)
     {
 
-        $rawData = file_get_contents('php://input');
-        $jsonData = json_decode($rawData, true);
+        $jsonData = json_decode(file_get_contents('php://input'), true);
 
-        $result = null;
-
-        if (is_null($key)) {
-            $result = $jsonData;
-        } else {
-            $result = $jsonData[$key];
-        }
-
-        return $result;
+        return is_null($key) ? $jsonData : $jsonData[$key];
     }
 }
