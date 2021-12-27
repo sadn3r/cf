@@ -6,7 +6,9 @@ use Exception;
 
 class Container
 {
+
     private static ?Container $_instance = null;
+
 
     private function __construct(private array $dependencies = [])
     {
