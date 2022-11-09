@@ -7,12 +7,12 @@ use CF\Controllers\HttpRequestMethod;
 
 return [
 
-    '/' => [
-        HttpRequestMethod::GET->value => [Api::class, 'Index']
-    ],
+	'/' => [
+		HttpRequestMethod::GET->value => [Api::class, 'Index']
+	],
 
-    '/item/([a-z\-]+)' => [
-        HttpRequestMethod::GET->value => [Api::class, 'Item'],
-        HttpRequestMethod::POST->value => [Api::class, 'ItemPost'],
-    ],
+	'/item/([a-z\-]+)' => [
+		HttpRequestMethod::GET->value  => [Api::class, 'Item'],
+		HttpRequestMethod::POST->value => [Api::class, 'ItemPost'],
+	],
 ];

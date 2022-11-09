@@ -4,35 +4,37 @@ namespace CF;
 
 use Exception;
 
-class Router
-{
+class Router {
 
-    public function __construct(private Request $request, private array $routes)
-    {
-    }
+	public function __construct(private readonly Request $request, private readonly array $routes) {
+	}
 
-    public function resolve()
-    {
 
-        foreach ($this->routes as $rule => $handler) {
+	/**
+	 * @return array
+	 * @throws Exception
+	 */
+	public function resolve(): array {
 
-            if (preg_match('#^' . $rule . '$#u', urldecode($this->request->requestUri), $matches)) {
+		foreach ($this->routes as $rule => $handler) {
 
-                if (!array_key_exists($this->request->requestMethod->value, $handler)) {
-                    continue;
-                }
+			if (preg_match('#^' . $rule . '$#u', urldecode($this->request->requestUri), $matches)) {
 
-                [$controller, $action] = $handler[$this->request->requestMethod->value];
+				if (!array_key_exists($this->request->requestMethod->value, $handler)) {
+					continue;
+				}
 
-                array_shift($matches);
-                return [
-                    'controller' => $controller,
-                    'action' => $action,
-                    'arguments' => $matches,
-                ];
-            }
-        }
+				[$controller, $action] = $handler[$this->request->requestMethod->value];
 
-        throw new Exception("Action Unhandled", 1);
-    }
+				array_shift($matches);
+				return [
+					'controller' => $controller,
+					'action'     => $action,
+					'arguments'  => $matches,
+				];
+			}
+		}
+
+		throw new Exception("Action Unhandled", 1);
+	}
 }

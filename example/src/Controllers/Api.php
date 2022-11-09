@@ -8,22 +8,19 @@ use CF\Traits\JsonRender;
 
 use Throwable;
 
-class Api extends Controller
-{
+class Api extends Controller {
 
-    use JsonRender;
+	use JsonRender;
 
-    public function Index()
-    {
-        echo 'HelloWorld';
-    }
+	public function Index() {
+		echo 'HelloWorld';
+	}
 
-    public function __construct(Request $request)
-    {
-        parent::__construct($request);
+	public function __construct(Request $request) {
+		parent::__construct($request);
 
-        $driver = new \mysqli_driver();
-        $driver->report_mode = MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX;
-    }
+		$driver = new \mysqli_driver();
+		$driver->report_mode = MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX;
+	}
 
 }

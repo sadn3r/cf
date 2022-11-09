@@ -2,7 +2,6 @@
 
 namespace CF\Interfaces;
 
-interface Renderable
-{
-    public static function render();
+interface Renderable {
+	public static function render();
 }

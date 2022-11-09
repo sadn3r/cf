@@ -16,16 +16,16 @@ define('PUBLIC_JWT', require __DIR__ . '/../public.key.php');
 set_error_handler(fn($severity, $message, $filename, $lineno) => throw new ErrorException($message, 0, $severity, $filename, $lineno));
 
 set_exception_handler(fn($th) => Api::render([
-    'error' => $th->getMessage(),
-    'errorCode' => $th->getCode(),
-    'line'  => "{$th->getFile()} : {$th->getLine()}",
+	'error'     => $th->getMessage(),
+	'errorCode' => $th->getCode(),
+	'line'      => "{$th->getFile()} : {$th->getLine()}",
 ], 500));
 
 require __DIR__ . './../vendor/autoload.php';
 
 
 $router = Container::getInstance(require __DIR__ . './../dependencies.php')
-    ->make(Router::class);
+	->make(Router::class);
 
 $action = $router->resolve();
 

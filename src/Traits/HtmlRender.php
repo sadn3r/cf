@@ -2,13 +2,16 @@
 
 namespace CF\Traits;
 
-trait HtmlRender
-{
+trait HtmlRender {
 
-    public function render(string $tpl = 'default', array $data = [])
-    {
-        extract($data);
-        require $this->dir . "/../Views/{$tpl}.tpl";
-    }
+	/**
+	 * @param string $tpl
+	 * @param array $data
+	 * @return void
+	 */
+	public function render(string $tpl = 'default', array $data = []): void {
+		extract($data);
+		require $this->dir . "/../Views/{$tpl}.tpl";
+	}
 
 }
