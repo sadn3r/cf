@@ -7,5 +7,5 @@ enum HttpRequestMethod: string {
 	case POST = 'POST';
 	case DELETE = 'DELETE';
 	case PUT = 'PUT';
-	case OPTION = 'OPTION';
+	case OPTIONS = 'OPTIONS';
 }
