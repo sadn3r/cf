@@ -38,9 +38,9 @@ install:
 ```
 
 > composer install
-
-
-touch public/index.php
+>
+> mkdir public
+> touch public/index.php
 
 ```
 <?php declare(strict_types=1);
