@@ -40,6 +40,7 @@ install:
 > composer install
 >
 > mkdir public
+>
 > touch public/index.php
 
 ```
