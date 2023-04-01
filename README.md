@@ -21,6 +21,9 @@ install:
     	"cf/base": "dev-main",
     	"cf/db": "dev-main"
     },
+    "require-dev": {
+        "phpstan/phpstan": "^1.10"
+    },
     "repositories": [
         {
             "type": "vcs",
